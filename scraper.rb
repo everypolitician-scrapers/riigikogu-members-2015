@@ -31,9 +31,9 @@ def member_info(url)
     faction: noko.xpath("//div[contains(@class, 'Label') and normalize-space(text()) = 'Fraktsioon:']/following-sibling::div/a[1]").text.strip,
     area: noko.xpath("//div[contains(@class, 'Label') and normalize-space(text()) = 'Valimisringkond:']/following-sibling::div").text.strip,
     email: epost(noko.xpath("//div[contains(@class, 'Label') and normalize-space(text()) = 'E-post:']/following-sibling::div/a").text.strip),
-    house: 'Riigikogu XIII',
   }
   data[:id] = data[:img][/pid=([^&]+)/,1]
+  data[:house] = 'Riigikogu XIII'
   return data
 end
 
