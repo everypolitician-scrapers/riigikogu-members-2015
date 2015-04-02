@@ -37,8 +37,8 @@ def member_info(url)
   return data
 end
 
-member_urls.each do |u|
+member_urls.each_with_index do |u, i|
   data = member_info(u)
-  puts "Adding #{data[:name]}: #{data[:faction]}"
+  puts "Adding #{i+1}. #{data[:name]}: #{data[:faction]}"
   ScraperWiki.save_sqlite([:id], data)
 end
